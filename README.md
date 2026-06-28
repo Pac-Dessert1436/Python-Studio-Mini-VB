@@ -1,60 +1,92 @@
-# Running Python Scripts in WinForms Application
+# Python Studio Mini - VB.NET WinForms Code Editor
 
-This VB.NET project enables the execution of Python scripts within a Windows Forms application. It's designed to
-harness the flexibility and power of Python in conjunction with the user interface capabilities of WinForms.
+A modern, feature-rich Python code editor, built with VB.NET WinForms, equipped with real-time code execution and a relatively simple user interface.
 
-## Project Overview
+![](screenshot.png)
 
-Python scripts for this application are stored in the "PyScripts" folder, providing a centralized location for 
-easy management and access.
+## Features
 
-## Python Main Function Specification
+- 🌙 **Dual Themes**: Light and dark themes for comfortable coding in any environment
+- ⚡ **Real-time Execution**: Run Python code directly in the editor and see output instantly
+- 🎯 **Sample Code**: Pre-loaded with example code to help you get started quickly
+- 🔒 **Type Safety**: Built with Option Strict On for enhanced type safety and reliability
+- 🐍 **Python.NET Integration**: Seamless integration with Python using Python.Runtime for powerful execution
 
-To ensure that the output from your Python scripts is properly captured and displayed by the WinForms application, 
-the main function in your Python scripts must be defined according to the following guidelines:
+## Requirements
 
-### With Arguments
+- [.NET SDK 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or later
+- [Python 3.14](https://www.python.org/downloads/release/python-3140/) or later installed
+- **IDE**: Visual Studio 2026, Visual Studio Code, or any other .NET-compatible IDE
 
-If your script is designed to accept arguments, the main function should take a `StringIO` object for output and
-a list of arguments of any type. The function should print to the `StringIO` object and return its contents.
+## Getting Started
+
+1. Clone or download the repository:
+```bash
+git clone https://github.com/Pac-Dessert1436/Python-Studio-Mini-VB.git
+```
+2. Open the solution in Visual Studio or your preferred IDE.
+3. Build and run the application:
+```bash
+dotnet build
+dotnet run
+```
+4. Start writing and executing Python code!
+
+## Usage
+
+1. **Write Code**: Use the top text editor to write your Python code
+2. **Run Python Code**: Click the "Run Python Code" button to execute your code
+3. **View Output**: See the results in the bottom output window
+4. **Clear Output**: Click the "Clear Output" button to reset the editor and output
+5. **Change Theme**: Select between Light and Dark themes from the dropdown
+
+## Example Code
 
 ```python
-from io import StringIO
+print("Hello from Python Studio!")
 
+# Try some calculations
+x = 10
+y = 20
+print(f"Sum of {x} and {y} is: {x + y}")
 
-def main(output: StringIO, args: list) -> str:
-    # Join arguments and print to output
-    print(str().join(args), file=output)
-    # Return the contents of the output buffer
-    return output.getvalue()
+# List comprehension example
+numbers = [1, 2, 3, 4, 5]
+squared = [n**2 for n in numbers]
+print("Squared numbers:", squared)
+
+# Function example
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+print(greet("Python Developer"))
 ```
 
-### Without Arguments
+## Technical Details
 
-If your script does not require arguments, the main function can be simplified to only accept a `StringIO` object.
+- **Language**: VB.NET with Option Strict On for type safety
+- **Python Integration**: Uses Python.Runtime library for strongly-typed Python API access
+- **Syntax Highlighting**: Custom implementation that highlights:
+  - Keywords (blue)
+  - Strings (green)
+  - Comments (gray)
+- **Theme System**: Full theme support with automatic syntax highlighting adjustment
 
-```python
-from io import StringIO
+## Project Structure
 
-
-def main(output: StringIO) -> str:
-    # Print a message to output
-    print("Hello world!", file=output)
-    # Return the contents of the output buffer
-    return output.getvalue()
 ```
-
-## How to Use
-
-To use this project, simply place your Python scripts in the "PyScripts" folder, ensuring they adhere to the 
-main function definitions provided. The WinForms application will execute your scripts and display their output.
+Run-Python-in-WinForms/
+├── frmMain.vb              # Main form with all editor functionality
+├── Program.vb              # Application entry point
+├── README.md               # This file
+├── Python Studio Mini VB.sln    # Visual Studio solution
+└── Python Studio Mini VB.vbproj # Visual Studio project
+```
 
 ## Contributing
 
-While this project is currently a solo endeavor, I am open to collaboration. If you're interested in contributing, 
-please reach out to discuss potential enhancements, bug fixes, or new features.
+Feel free to submit issues and enhancement requests!
 
 ## License
 
-This project is released under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project, 
-provided you comply with the terms of the license.
+MIT License - see [LICENSE](LICENSE) file for details
